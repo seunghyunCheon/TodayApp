@@ -19,6 +19,7 @@ class ReminderListViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        collectionView.backgroundColor = .black
         let listLayout = listLayout()
         collectionView.collectionViewLayout = listLayout
         
