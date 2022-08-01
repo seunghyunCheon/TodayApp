@@ -12,8 +12,7 @@ class ReminderListViewController: UICollectionViewController {
     // Diffable Data Source를 사용함으로써 테이블뷰에 데이터가 변화되는 것과 UI가 업데이트 되는 것을 동기화 시킬 수 있다.
     // 즉 기존에는 동기화가 잘 되지 않아 크래시를 막기 위해 reloadData()를 사용했지만 이를 이용하면, apply메서드만으로 동기화가 가능해진다.
     
-    typealias DataSource = UICollectionViewDiffableDataSource<Int, String>
-    typealias SnapShot = NSDiffableDataSourceSnapshot<Int, String>
+    
     var dataSource: DataSource!
     
     override func viewDidLoad() {
@@ -23,13 +22,7 @@ class ReminderListViewController: UICollectionViewController {
         let listLayout = listLayout()
         collectionView.collectionViewLayout = listLayout
         
-        let cellRegistration = UICollectionView.CellRegistration { (cell: UICollectionViewListCell, indexPath: IndexPath, itemIdentifier: String) in
-            let reminder = Reminder.sampleData[indexPath.item]
-            var contentConfiguration = cell.defaultContentConfiguration()
-            contentConfiguration.text = reminder.title
-            cell.contentConfiguration = contentConfiguration
-            
-        }
+        let cellRegistration = UICollectionView.CellRegistration(handler: cellRegisterationHandler)
         
         dataSource = DataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
