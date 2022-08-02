@@ -29,11 +29,8 @@ class ReminderListViewController: UICollectionViewController {
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
         })
         
-        // data state를 담는 초기 snapShot을 정의
-        var snapshot = SnapShot()
-        snapshot.appendSections([0])
-        snapshot.appendItems(reminders.map{ $0.id })
-        dataSource.apply(snapshot)
+        // 기본값이 빈 배열이라면 아래와 같이 호출가능하다
+        updateSnapShot()
         collectionView.dataSource = dataSource
     }
 
