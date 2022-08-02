@@ -38,7 +38,7 @@ class ReminderViewController: UICollectionViewController {
         contentConfiguration.textProperties.font = UIFont.preferredFont(forTextStyle: row.textStyle)
         contentConfiguration.image = row.image
         cell.contentConfiguration = contentConfiguration
-        cell.tintColor = .white
+        cell.tintColor = .systemBlue
     }
     
     private func updateSnapshot() {
