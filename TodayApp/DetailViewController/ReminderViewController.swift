@@ -33,7 +33,7 @@ class ReminderViewController: UICollectionViewController {
         collectionView.backgroundColor = .black
         
         navigationItem.title = NSLocalizedString("Reminder", comment: "Reminder view controller title")
-        updateSnapshot()
+        updateSnapshotForViewing()
     }
     
     func cellRegistrationHandler(cell: UICollectionViewListCell, indexPath: IndexPath, row: Row) {
@@ -53,7 +53,13 @@ class ReminderViewController: UICollectionViewController {
 //        cell.tintColor = .white
     }
     
-    private func updateSnapshot() {
+    private func updateSnapshotForEditting() {
+        var snapshot = Snapshot()
+        snapshot.appendSections([.title, .date, .notes])
+        dataSource.apply(snapshot)
+    }
+    
+    private func updateSnapshotForViewing() {
         var snapshot = Snapshot()
         snapshot.appendSections([.view])
         snapshot.appendItems([.viewTitle, .viewDate, .viewTime, .viewNotes], toSection: .view)
