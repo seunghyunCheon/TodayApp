@@ -14,6 +14,7 @@ class ReminderListViewController: UICollectionViewController {
     
     
     var dataSource: DataSource!
+    var reminders: [Reminder] = Reminder.sampleData
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,14 +25,14 @@ class ReminderListViewController: UICollectionViewController {
         
         let cellRegistration = UICollectionView.CellRegistration(handler: cellRegisterationHandler)
         
-        dataSource = DataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
+        dataSource = DataSource(collectionView: collectionView, cellProvider: { (collectionView, indexPath, itemIdentifier: Reminder.ID) in
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
         })
         
         // data state를 담는 초기 snapShot을 정의
         var snapshot = SnapShot()
         snapshot.appendSections([0])
-        snapshot.appendItems(Reminder.sampleData.map{ $0.title })
+        snapshot.appendItems(reminders.map{ $0.id })
         dataSource.apply(snapshot)
         collectionView.dataSource = dataSource
     }
