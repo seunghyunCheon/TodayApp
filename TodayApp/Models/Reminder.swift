@@ -16,6 +16,16 @@ struct Reminder: Identifiable {
     var isComplete: Bool = false
 }
 
+// id값을 받아 인덱스 값을 리턴하는 배열 확장
+extension Array where Element == Reminder {
+    func indexOfReminder(with id: Reminder.ID) -> Self.Index {
+        guard let index = firstIndex(where: { $0.id == id }) else {
+            fatalError()
+        }
+        return index
+    }
+}
+
 // 릴리즈 버전의 빌드에서 컴파일을 막는 코드로 테스트 샘플 데이터 및 디버깅할때 사용한다.
 #if DEBUG
 extension Reminder {
