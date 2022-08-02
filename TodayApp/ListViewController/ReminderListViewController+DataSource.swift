@@ -49,10 +49,10 @@ extension ReminderListViewController {
         
         
         // 버튼 스타일에 대한 속성
-        cell.layer.borderColor = UIColor.white.cgColor
-        cell.layer.borderWidth = 1
+//        cell.layer.borderColor = UIColor.white.cgColor
+//        cell.layer.borderWidth = 1
         var backgroundConfiguration = UIBackgroundConfiguration.listGroupedCell()
-        backgroundConfiguration.backgroundColor = .black
+        backgroundConfiguration.backgroundColor =  #colorLiteral(red: 0.1298420429, green: 0.1298461258, blue: 0.1298439503, alpha: 1)
         cell.backgroundConfiguration = backgroundConfiguration
         
     }

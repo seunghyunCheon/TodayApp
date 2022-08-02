@@ -32,6 +32,7 @@ class ReminderListViewController: UICollectionViewController {
         // 기본값이 빈 배열이라면 아래와 같이 호출가능하다
         updateSnapShot()
         collectionView.dataSource = dataSource
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
