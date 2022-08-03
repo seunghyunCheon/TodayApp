@@ -91,5 +91,4 @@ class ReminderViewController: UICollectionViewController {
         return section
     }
     
-    }
 }
