@@ -13,6 +13,7 @@ class TextFieldContentView: UIView, UIContentView {
     }
     
     let textField = UITextField()
+    // 설정 객체가 model data를 가지고 있고, 이는 변화에 따라서 view를 업데이트 해주기 때문에 동기화를 보장한다.
     var configuration: UIContentConfiguration {
         didSet {
             configure(configuration: configuration)
