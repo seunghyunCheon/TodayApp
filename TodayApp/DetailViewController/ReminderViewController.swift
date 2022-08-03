@@ -13,6 +13,7 @@ class ReminderViewController: UICollectionViewController {
         var listConfiguration = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
         listConfiguration.showsSeparators = false
         listConfiguration.backgroundColor = .clear
+        listConfiguration.headerMode = .firstItemInSection
         let listLayout = UICollectionViewCompositionalLayout.list(using: listConfiguration)
         super.init(collectionViewLayout: listLayout)
     }
@@ -54,20 +55,26 @@ class ReminderViewController: UICollectionViewController {
         
         let section = section(for: indexPath)
         switch (section, row) {
+        case (_, .header(let title)):
+            var contentConfiguration = cell.defaultContentConfiguration()
+            contentConfiguration.text = title
+            contentConfiguration.textProperties.color = .white
+            cell.contentConfiguration = contentConfiguration
         case (.view, _):
             var contentConfiguration = cell.defaultContentConfiguration()
             contentConfiguration.text = text(for: row)
+            contentConfiguration.textProperties.color = .white
             contentConfiguration.textProperties.font = UIFont.preferredFont(forTextStyle: row.textStyle)
             contentConfiguration.image = row.image
             cell.contentConfiguration = contentConfiguration
+            // 셀 배경색
+            var backgroundConfiguration = UIBackgroundConfiguration.listGroupedCell()
+            backgroundConfiguration.backgroundColor =  #colorLiteral(red: 0.1298420429, green: 0.1298461258, blue: 0.1298439503, alpha: 1)
+            cell.backgroundConfiguration = backgroundConfiguration
         default:
             fatalError("Unexpected combination of section and row.")
         }
         
-        // 셀 배경색
-        var backgroundConfiguration = UIBackgroundConfiguration.listGroupedCell()
-        backgroundConfiguration.backgroundColor =  #colorLiteral(red: 0.1298420429, green: 0.1298461258, blue: 0.1298439503, alpha: 1)
-        cell.backgroundConfiguration = backgroundConfiguration
         
 //        cell.tintColor = .white
     }
@@ -75,13 +82,16 @@ class ReminderViewController: UICollectionViewController {
     private func updateSnapshotForEditting() {
         var snapshot = Snapshot()
         snapshot.appendSections([.title, .date, .notes])
+        snapshot.appendItems([.header(Section.title.name)], toSection: .title)
+        snapshot.appendItems([.header(Section.date.name)], toSection: .date)
+        snapshot.appendItems([.header(Section.notes.name)], toSection: .notes)
         dataSource.apply(snapshot)
     }
     
     private func updateSnapshotForViewing() {
         var snapshot = Snapshot()
         snapshot.appendSections([.view])
-        snapshot.appendItems([.viewTitle, .viewDate, .viewTime, .viewNotes], toSection: .view)
+        snapshot.appendItems([.header(""), .viewTitle, .viewDate, .viewTime, .viewNotes], toSection: .view)
         dataSource.apply(snapshot)
     }
     
@@ -99,6 +109,7 @@ class ReminderViewController: UICollectionViewController {
         case .viewNotes: return reminder.notes
         case .viewTime: return reminder.dueDate.formatted(date: .omitted, time: .shortened)
         case .viewTitle: return reminder.title
+        default: return nil
         }
     }
 }

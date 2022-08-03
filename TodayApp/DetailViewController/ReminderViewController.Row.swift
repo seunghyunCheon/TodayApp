@@ -3,6 +3,7 @@ import UIKit
 extension ReminderViewController {
     // Data Source는 해시 프로토콜을 따르는 타입으로 조회하기 때문에 해시 프로토콜을 따라야한다.
     enum Row: Hashable {
+        case header(String)
         case viewDate
         case viewNotes
         case viewTime
