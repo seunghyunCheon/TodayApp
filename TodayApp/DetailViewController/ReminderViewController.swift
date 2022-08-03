@@ -33,7 +33,20 @@ class ReminderViewController: UICollectionViewController {
         collectionView.backgroundColor = .black
         
         navigationItem.title = NSLocalizedString("Reminder", comment: "Reminder view controller title")
+        // viewController에 내장하고 있는 edit속성.(Edit or Done)
+        navigationItem.rightBarButtonItem = editButtonItem
+        
         updateSnapshotForViewing()
+    }
+    
+    // edit될 때 실행
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        if editing {
+            updateSnapshotForEditting()
+        } else {
+            updateSnapshotForViewing()
+        }
     }
     
     func cellRegistrationHandler(cell: UICollectionViewListCell, indexPath: IndexPath, row: Row) {
