@@ -75,7 +75,13 @@ class ReminderViewController: UICollectionViewController {
 //        cell.tintColor = .white
     }
     
+    @objc func didCancelEdit() {
+        workingReminder = reminder
+        setEditing(false, animated: true)
+    }
+    
     private func prepareForEditing() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(didCancelEdit))
         updateSnapshotForEditting()
     }
     
@@ -89,6 +95,7 @@ class ReminderViewController: UICollectionViewController {
     }
     
     private func prepareForViewing() {
+        navigationItem.leftBarButtonItem = nil
         if reminder != workingReminder {
             reminder = workingReminder
         }
