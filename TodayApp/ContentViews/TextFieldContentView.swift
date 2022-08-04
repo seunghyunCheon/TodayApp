@@ -8,6 +8,7 @@ class TextFieldContentView: UIView, UIContentView {
         }
         
         var text: String? = ""
+        var onChange: (String)->Void = { _ in }
         
       
     }
@@ -30,6 +31,7 @@ class TextFieldContentView: UIView, UIContentView {
         self.configuration = configuration
         super.init(frame: .zero)
         addPinnedSubview(textField, insets: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16))
+        textField.addTarget(self, action: #selector(didChange(_:)), for: .editingChanged)
         textField.clearButtonMode = .whileEditing
     }
     
@@ -41,6 +43,11 @@ class TextFieldContentView: UIView, UIContentView {
         guard let configuration = configuration as? Configuration else { return }
         textField.text = configuration.text
         
+    }
+    
+    @objc private func didChange(_ sender: UITextField) {
+        guard let configuration = configuration as? TextFieldContentView.Configuration else { return }
+        configuration.onChange(textField.text ?? "")
     }
     
     
