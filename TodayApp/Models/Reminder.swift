@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Reminder: Identifiable {
+struct Reminder: Equatable, Identifiable {
     // Identifiable 프로토콜을 채택하면 타입.ID라는 id속성의 타입 앨리어스가 생성된다.
     var id: String = UUID().uuidString
     var title: String
