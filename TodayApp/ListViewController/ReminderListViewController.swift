@@ -29,6 +29,11 @@ class ReminderListViewController: UICollectionViewController {
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
         })
         
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didPressAddButton(_:)))
+        addButton.accessibilityLabel = NSLocalizedString("Add reminder", comment: "Add reminder button")
+        navigationItem.rightBarButtonItem = addButton
+        
+        
         // 기본값이 빈 배열이라면 아래와 같이 호출가능하다
         updateSnapShot()
         collectionView.dataSource = dataSource
