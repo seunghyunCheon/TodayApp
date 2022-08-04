@@ -16,6 +16,10 @@ class ReminderListViewController: UICollectionViewController {
     var dataSource: DataSource!
     var reminders: [Reminder] = Reminder.sampleData
     var listStyle: ReminderListStyle = .today
+    var listStyleSegmentedControl = UISegmentedControl(items: [
+        ReminderListStyle.today.name, ReminderListStyle.future.name, ReminderListStyle.all.name
+    ])
+    
     var filteredReminders: [Reminder] { return reminders.filter { listStyle.shouldInclude(date: $0.dueDate)}.sorted { $0.dueDate < $1.dueDate}
     }
     
@@ -36,6 +40,9 @@ class ReminderListViewController: UICollectionViewController {
         addButton.accessibilityLabel = NSLocalizedString("Add reminder", comment: "Add reminder button")
         navigationItem.rightBarButtonItem = addButton
         
+        listStyleSegmentedControl.selectedSegmentIndex = listStyle.rawValue
+        listStyleSegmentedControl.backgroundColor = #colorLiteral(red: 0.2265406549, green: 0.259922564, blue: 0.2605726719, alpha: 1)
+        navigationItem.titleView = listStyleSegmentedControl
         
         // 기본값이 빈 배열이라면 아래와 같이 호출가능하다
         updateSnapShot()
