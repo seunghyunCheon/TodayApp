@@ -14,12 +14,14 @@ class TextFieldContentView: UIView, UIContentView {
     }
     
     let textField = UITextField()
+    
     // 설정 객체가 model data를 가지고 있고, 이는 변화에 따라서 view를 업데이트 해주기 때문에 동기화를 보장한다.
     var configuration: UIContentConfiguration {
         didSet {
             configure(configuration: configuration)
         }
     }
+    
     
     // 기본적으로 UIView를 상속하면 그 클래스의 크기는 내용의 크기에 따라 크기가 결정된다. 이에 대해 실제적인 크기를 구현하고 싶다면 intrinsicContentSize를 직접 정의하면 된다.
     
