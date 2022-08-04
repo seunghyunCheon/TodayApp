@@ -16,10 +16,11 @@ extension ReminderListViewController {
     }
     
     // 셀의 데이터가 변경되었을 때마다 snapShot을 업데이트하고, apply시켜야 적용이 됨.
-    func updateSnapShot(reloading ids: [Reminder.ID] = []) {
+    func updateSnapShot(reloading idsThatChanged: [Reminder.ID] = []) {
+        let ids = idsThatChanged.filter { id in filteredReminders.contains(where: { $0.id == id })}
         var snapshot = SnapShot()
         snapshot.appendSections([0])
-        snapshot.appendItems(reminders.map{ $0.id })
+        snapshot.appendItems(filteredReminders.map{ $0.id })
         if !ids.isEmpty {
             snapshot.reloadItems(ids)
         }
