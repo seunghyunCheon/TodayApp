@@ -53,6 +53,7 @@ override func viewDidLoad() {
 - 속성이 변화되었을 때 실행하는 메서드.
 - ex) 기존의 VC에서 리스트의 아이템 하나를 클릭 시 디테일 VC로 이동할 때 reminder의 속성이 변경되면서 실행
 - reminder는 일정관리의 셀의 데이터모델로 비즈니스 로직의 핵심모델
+
 1. 셀 클릭 시 shouldSelectItemAt 실행.
 ```swift
 // viewListController.swift
@@ -84,6 +85,9 @@ var reminder: Reminder {
 }
 ```
 
+<br/>
+<br/>
+
 ### ✍🏻 접근성의 사용
 - Collectionview의 cell내에서 접근성을 부여하는 것은 accessibilityCustomActions, accessabilityValue 2가지를 기억하면 된다.
 - accessibilityCustomActions에는 지정한 접근성 커스텀 액션을 담아주고, accessabilityValue에는 조건에 따라서 VoiceOver로 들려줄 값을 설정하면 된다.
@@ -114,6 +118,10 @@ func cellRegistrationHandler(cell: UICollectionViewListCell, indexPath: IndexPat
     cell.accessibilityValue = reminder.isComplete ? reminderCompletedValue : reminderNotCompletedValue
     // code
 ```
+
+<br/>
+<br/>
+
 ### ✍🏻 array의 확장
 - id값을 받아 인덱스 값을 리턴하는 배열 확장
 ```swift
