@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		62434838289C9E40003958F6 /* ProgressHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62434837289C9E40003958F6 /* ProgressHeaderView.swift */; };
 		62F843A42897B5E000DBD857 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F843A32897B5E000DBD857 /* AppDelegate.swift */; };
 		62F843A62897B5E000DBD857 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F843A52897B5E000DBD857 /* SceneDelegate.swift */; };
 		62F843A82897B5E000DBD857 /* ReminderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F843A72897B5E000DBD857 /* ReminderListViewController.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		62434837289C9E40003958F6 /* ProgressHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHeaderView.swift; sourceTree = "<group>"; };
 		62F843A02897B5E000DBD857 /* TodayApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodayApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62F843A32897B5E000DBD857 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62F843A52897B5E000DBD857 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				62F843BD28981AF100DBD857 /* ReminderListViewController+DataSource.swift */,
 				62F843BF2898B2A400DBD857 /* ReminderDoneButton.swift */,
 				62F843C12898B32800DBD857 /* ReminderListViewController+Actions.swift */,
+				62434837289C9E40003958F6 /* ProgressHeaderView.swift */,
 			);
 			path = ListViewController;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				62F843BB2898176500DBD857 /* Date+Today.swift in Sources */,
 				62F843C22898B32800DBD857 /* ReminderListViewController+Actions.swift in Sources */,
 				62F843A42897B5E000DBD857 /* AppDelegate.swift in Sources */,
+				62434838289C9E40003958F6 /* ProgressHeaderView.swift in Sources */,
 				62F843C92899AF8800DBD857 /* ReminderViewController+Section.swift in Sources */,
 				62F843CB289A2D3D00DBD857 /* ReminderViewController+CellConfiguration.swift in Sources */,
 				62F843A62897B5E000DBD857 /* SceneDelegate.swift in Sources */,

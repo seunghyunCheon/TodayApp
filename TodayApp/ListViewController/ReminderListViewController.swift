@@ -41,6 +41,7 @@ class ReminderListViewController: UICollectionViewController {
         navigationItem.rightBarButtonItem = addButton
         
         listStyleSegmentedControl.selectedSegmentIndex = listStyle.rawValue
+        listStyleSegmentedControl.addTarget(self, action: #selector(didChangeListStyle(_:)), for: .valueChanged)
         listStyleSegmentedControl.backgroundColor = #colorLiteral(red: 0.2265406549, green: 0.259922564, blue: 0.2605726719, alpha: 1)
         navigationItem.titleView = listStyleSegmentedControl
         
