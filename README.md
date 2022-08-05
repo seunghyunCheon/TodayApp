@@ -3,7 +3,7 @@
 
 ## ⭐️ 개요
 - Swift문법개념을 실제 앱만들기에 적용시키고, 그 과정에서 Apple이 권장하는 Best Practice들을 취득하기 위한 프로젝트
-- 일정을 손쉽게 등록하고 관리할 수 있다.
+- 일정을 손쉽게 등록하고 관리할 수 있는 앱.
 
 ## ⭐️ 앱 화면
 <img width="300px" height="600px" src="https://user-images.githubusercontent.com/70146658/180103659-3b4855ef-aedf-4c6d-bc85-f684f18ee3a3.gif"/>
