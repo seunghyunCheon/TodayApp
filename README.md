@@ -12,7 +12,7 @@
 ## ⭐️ 알게된 것
 
 ### ✍🏻 Diffable DataSource
-- 기존의 DataSource에서 reloadData를 수동적으로 해야하고, UI 업데이트가 깜빡거리게 되는 현상을 방지하게 나온 제네릭 클래스.
+- 기존의 DataSource에서 reloadData를 수동적으로 해야하고, UI 업데이트가 깜빡거리게 되는 현상을 방지하 나온 제네릭 클래스.
 #### 사용방법
 1. Diffable Data Source와 collection view 연결
 2. 컬렉션 뷰의 셀을 구성하기 위한 cell Provider 구현 (사전에 register 필수)
